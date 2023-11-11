@@ -1244,6 +1244,14 @@ void RasterizerCanvasGLES3::render_joined_item(const BItemJoined &p_bij, RenderI
 		}
 
 		if (shader_ptr) {
+			if (shader_ptr->canvas_item.cull_mode == RasterizerStorageGLES3::Shader::CanvasItem::CULL_MODE_FRONT){
+				glEnable(GL_CULL_FACE);
+				glCullFace(GL_FRONT);
+			}
+			else if(shader_ptr->canvas_item.cull_mode == RasterizerStorageGLES3::Shader::CanvasItem::CULL_MODE_BACK){
+				glEnable(GL_CULL_FACE);
+				glCullFace(GL_BACK);
+			}
 			if (shader_ptr->canvas_item.uses_screen_texture && !state.canvas_texscreen_used) {
 				//copy if not copied before
 				_copy_texscreen(Rect2());
