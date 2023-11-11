@@ -152,9 +152,6 @@ public:
 
 	void set_particles_anim_loop(bool p_loop);
 	bool get_particles_anim_loop() const;
-	
-	void set_cull_mode(CullMode p_mode);
-	CullMode get_cull_mode() const;
 
 	static void init_shaders();
 	static void finish_shaders();
