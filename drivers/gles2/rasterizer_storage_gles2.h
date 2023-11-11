@@ -444,6 +444,13 @@ public:
 
 			int light_mode;
 
+			enum CullMode {
+				CULL_MODE_DISABLED,
+				CULL_MODE_FRONT,
+				CULL_MODE_BACK
+			};
+			int cull_mode;
+
 			// these flags are specifically for batching
 			// some of the logic is thus in rasterizer_storage.cpp
 			// we could alternatively set bitflags for each 'uses' and test on the fly
