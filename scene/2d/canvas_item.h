@@ -62,12 +62,6 @@ public:
 		LIGHT_MODE_UNSHADED,
 		LIGHT_MODE_LIGHT_ONLY
 	};
-	
-	enum CullMode {
-		CULL_BACK,
-		CULL_FRONT,
-		CULL_DISABLED
-	};
 
 private:
 	union MaterialKey {
@@ -75,7 +69,6 @@ private:
 			uint32_t blend_mode : 4;
 			uint32_t light_mode : 4;
 			uint32_t particles_animation : 1;
-			uint64_t cull_mode : 2;
 			uint32_t invalid_key : 1;
 		};
 
@@ -109,7 +102,6 @@ private:
 		mk.blend_mode = blend_mode;
 		mk.light_mode = light_mode;
 		mk.particles_animation = particles_animation;
-		mk.cull_mode = cull_mode;
 		return mk;
 	}
 
@@ -125,7 +117,6 @@ private:
 	BlendMode blend_mode;
 	LightMode light_mode;
 	bool particles_animation;
-	CullMode cull_mode;
 
 	int particles_anim_h_frames;
 	int particles_anim_v_frames;
@@ -406,6 +397,5 @@ public:
 };
 
 VARIANT_ENUM_CAST(CanvasItem::BlendMode);
-VARIANT_ENUM_CAST(SpatialMaterial::CullMode)
 
 #endif // CANVAS_ITEM_H
