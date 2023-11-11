@@ -271,6 +271,10 @@ ShaderTypes::ShaderTypes() {
 	shader_modes[VS::SHADER_CANVAS_ITEM].modes.push_back("unshaded");
 	shader_modes[VS::SHADER_CANVAS_ITEM].modes.push_back("light_only");
 
+	shader_modes[VS::SHADER_CANVAS_ITEM].modes.push_back("cull_disabled");
+	shader_modes[VS::SHADER_CANVAS_ITEM].modes.push_back("cull_front");
+	shader_modes[VS::SHADER_CANVAS_ITEM].modes.push_back("cull_back");
+
 	/************ PARTICLES **************************/
 
 	shader_modes[VS::SHADER_PARTICLES].functions["global"].built_ins["TIME"] = constt(ShaderLanguage::TYPE_FLOAT);
