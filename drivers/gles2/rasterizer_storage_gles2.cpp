@@ -1408,6 +1408,10 @@ void RasterizerStorageGLES2::_update_shader(Shader *p_shader) const {
 			shaders.actions_canvas.render_mode_values["unshaded"] = Pair<int *, int>(&p_shader->canvas_item.light_mode, Shader::CanvasItem::LIGHT_MODE_UNSHADED);
 			shaders.actions_canvas.render_mode_values["light_only"] = Pair<int *, int>(&p_shader->canvas_item.light_mode, Shader::CanvasItem::LIGHT_MODE_LIGHT_ONLY);
 
+			shaders.actions_canvas.render_mode_values["cull_disabled"] = Pair<int *, int>(&p_shader->canvas_item.cull_mode, Shader::CanvasItem::CULL_MODE_DISABLED);
+			shaders.actions_canvas.render_mode_values["cull_front"] = Pair<int *, int>(&p_shader->canvas_item.cull_mode, Shader::CanvasItem::CULL_MODE_FRONT);
+			shaders.actions_canvas.render_mode_values["cull_back"] = Pair<int *, int>(&p_shader->canvas_item.cull_mode, Shader::CanvasItem::CULL_MODE_BACK);
+
 			shaders.actions_canvas.usage_flag_pointers["SCREEN_UV"] = &p_shader->canvas_item.uses_screen_uv;
 			shaders.actions_canvas.usage_flag_pointers["SCREEN_PIXEL_SIZE"] = &p_shader->canvas_item.uses_screen_uv;
 			shaders.actions_canvas.usage_flag_pointers["SCREEN_TEXTURE"] = &p_shader->canvas_item.uses_screen_texture;
